@@ -23,18 +23,18 @@ install(TARGETS sdstring EXPORT SDStringTargets
 	FILE_SET pub_headers DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 	INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
-install(EXPORT SDStringTargets FILE SDStringTargets.cmake NAMESPACE SDString:: DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/SDString)
+install(EXPORT SDStringTargets FILE SDStringTargets.cmake NAMESPACE SDString:: DESTINATION ${CMAKE_INSTALL_DATADIR}/cmake/SDString)
 
 export(EXPORT SDStringTargets FILE "${CMAKE_CURRENT_BINARY_DIR}/cmake/SDStringTargets.cmake" NAMESPACE SDString::)
 
 configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
   "${CMAKE_CURRENT_BINARY_DIR}/SDStringConfig.cmake"
-  INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/SDString)
+  INSTALL_DESTINATION ${CMAKE_INSTALL_DATADIR}/cmake/SDString)
 
 install(FILES
            "${CMAKE_CURRENT_BINARY_DIR}/SDStringConfig.cmake"
 	   "${CMAKE_CURRENT_BINARY_DIR}/SDStringConfigVersion.cmake"
-	DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/SDString
+	DESTINATION ${CMAKE_INSTALL_DATADIR}/cmake/SDString
 )
 
 set_property(TARGET sdstring PROPERTY INTERFACE_SDString_VERSION ${PROJECT_VERSION})
