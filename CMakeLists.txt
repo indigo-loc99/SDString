@@ -23,7 +23,12 @@ install(TARGETS sdstring EXPORT SDStringTargets
 	FILE_SET pub_headers DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 	INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
-install(EXPORT SDStringTargets FILE SDStringTargets.cmake NAMESPACE SDString:: DESTINATION ${CMAKE_INSTALL_DATADIR}/cmake/SDString)
+install(EXPORT SDStringTargets
+	#FILE SDStringTargets.cmake
+		 NAMESPACE SDString::
+		 DESTINATION ${CMAKE_INSTALL_DATADIR}/cmake/SDString
+		 CONFIGURATIONS Debug RelWithDebInfo Release
+	 )
 
 export(EXPORT SDStringTargets FILE "${CMAKE_CURRENT_BINARY_DIR}/cmake/SDStringTargets.cmake" NAMESPACE SDString::)
 
